@@ -14,19 +14,52 @@ def decrypt(encrypted_text, n):
         encrypted_text=text
     return encrypted_text
 
-def encrypt(text, n):
-    for j in range(n):
-        i = 0
-        s1 = ''
-        s2 = ''
-        for el in text:
-            if i % 2 == 1:
-                 s1 += el
-            else:
-                 s2 += el
-            i += 1
-        text=s1+s2
+
+# def encrypt(text, n):
+#     for j in range(n):
+#         i = 0
+#         s1 = ''
+#         s2 = ''
+#         for el in text:
+#             if i % 2 == 1:
+#                  s1 += el
+#             else:
+#                  s2 += el
+#             i += 1
+#         text=s1+s2
     return text
+
+def encrypt(text, n):
+    i = 0
+    s1 = ''
+    s2 = ''
+    for el in text:
+        if i % 2 == 1:
+            s1 += el
+        else:
+            s2 += el
+        i += 1
+    text=s1+s2
+    if n >= 1:
+        encrypt(text,n-1)
+    if n ==1 :
+        return text
+
+strg = "This is a test!"
+
+
+
+n = 1
+a = encrypt(strg,n)
+b = decrypt(a,n)
+print(strg,str)
+print(a)
+print(b)
+
+
+
+
+
 strg = "This is a test!"
 
 n = 1
